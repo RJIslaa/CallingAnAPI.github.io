@@ -54,12 +54,45 @@
     }
   </style>
 </head>
-<!---JAVA SCRIPT--->
-<script>
-  const loadAllBtn = document.getElementById("loadAllBtn");
-  const finBtn = document.getElementById("findBtn");
+
+<body>
+  <h1>Friends</h1>
+
+  <div class="controls">
+    <button id="loadAllFriends()" id="loadAllBtn">Load All Friends</button>
+    <input type="number" id="friendId" placeholder="Enter Friend ID" />
+    <button id="findBtn">Find Friend</button>
+    
+  </div>
+  <div class="controls">
+  <input type="text" id="firstName" placeholder="First Name" />
+  <input type="text" id="lastName" placeholder="Last Name" />
+  <input type="text" id="phone" placeholder="Phone" />
+  <button id="addBtn">Add Friend</button>
+</div>
+
+  <div id="message" class="message"></div>
+
+  <table id="friendsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    const API_URL = "https://friends-node-01-47e26a48b0b0.herokuapp.com/friends";
+      const loadAllBtn = document.getElementById("loadAllBtn");
+  const findBtn = document.getElementById("findBtn");
   const friendIDInput = document.getElementById("friendId");
   const tableBody = document.querySelector("#friendsTable tbody");
+  const messageDiv = document.getElementById("message");
 
   function clearTable() {
     tableBody.innerHTML = "";
@@ -129,34 +162,6 @@ async function findFriend() {
   }
 }
 findBtn.addEventListener("click", findFriend);
-</script>
-<body>
-  <h1>Friends</h1>
-
-  <div class="controls">
-    <button onclick="loadAllFriends()" id="loadAllBtn">Load All Friends</button>
-    <input type="number" id="friendId" placeholder="Enter Friend ID" />
-    <button onclick="findFriend()" id="findBtn">Find Friend</button>
-  </div>
-
-  <div id="message" class="message"></div>
-
-  <table id="friendsTable">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-
-  <script>
-    const API_URL = "https://friends-node-01-47e26a48b0b0.herokuapp.com/friends";
-
   </script>
 </body>
 </html>
