@@ -103,6 +103,7 @@ async function loadAllFriends() {
 loadAllBtn.addEventListener("click", loadAllFriends);
 
 async function findFriend() { 
+  const id = friendIDInput.value.trim();
   if(id=== ""){
     loadAllFriends();
     return
@@ -133,9 +134,9 @@ findBtn.addEventListener("click", findFriend);
   <h1>Friends</h1>
 
   <div class="controls">
-    <button id="loadAllBtn">Load All Friends</button>
+    <button onclick="loadAllFriends()" id="loadAllBtn">Load All Friends</button>
     <input type="number" id="friendId" placeholder="Enter Friend ID" />
-    <button id="findBtn">Find Friend</button>
+    <button onclick="findFriend()" id="findBtn">Find Friend</button>
   </div>
 
   <div id="message" class="message"></div>
